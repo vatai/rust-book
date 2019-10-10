@@ -48,10 +48,21 @@ fn mode(v: &Vec<i32>) -> i32 {
     *map.values().max().unwrap()
 }
 
+fn piggy(s: &str) -> String {
+    let mut rv = String::new();
+    for w in s.split_whitespace() {
+        rv += &String::from(w);
+        rv += "\n"
+    }
+    rv
+}
+
 fn main() {
     let v = vec![1, 1, 3, 4, 4, 4, 4];
     println!("Mean: {}\nMedain: {}\nMode: {}\n",
              mean(&v),
              median(&v),
              mode(&v));
+    let mystring = "Having fun with rust!";
+    print!("{}", piggy(&mystring));
 }
