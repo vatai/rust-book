@@ -23,7 +23,8 @@ fn mean(v: &Vec<i32>) -> f64 {
     for e in v {
         sum += e;
     }
-    f64::from(sum)
+    let len = v.len() as f64;
+    f64::from(sum) / len
 }
 
 fn median(v: &Vec<i32>) -> i32 {
@@ -43,7 +44,7 @@ fn mode(v: &Vec<i32>) -> i32 {
 }
 
 fn main() {
-    let v = vec![1, 4, 3, 4, 4, 4, 4];
+    let v = vec![1, 1, 3, 4, 4, 4, 4];
     println!("Mean: {}\nMedain: {}\nMode: {}\n",
              mean(&v),
              median(&v),
