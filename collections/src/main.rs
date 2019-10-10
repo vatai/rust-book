@@ -27,11 +27,16 @@ fn mean(v: &Vec<i32>) -> f64 {
     f64::from(sum) / len
 }
 
-fn median(v: &Vec<i32>) -> i32 {
+fn median(v: &Vec<i32>) -> f64 {
     let m = v.len() / 2;
     let mut sorted = v.clone();
     sorted.sort();
-    sorted[m]
+    let r = v.len() % 2;
+    if r == 0 {
+        (f64::from(sorted[m]) + f64::from(sorted[m - 1])) / 2.0
+    } else {
+        f64::from(sorted[m])
+    }
 }
 
 fn mode(v: &Vec<i32>) -> i32 {
