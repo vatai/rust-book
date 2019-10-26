@@ -48,11 +48,19 @@ fn mode(v: &Vec<i32>) -> i32 {
     *map.values().max().unwrap()
 }
 
+fn pigword(s: &str) -> String {
+    for ch in s.chars() {
+        print!("ch {}\n", ch);
+    }
+    String::from(s)
+}
+
 fn piggy(s: &str) -> String {
     let mut rv = String::new();
     for w in s.split_whitespace() {
-        rv += &String::from(w);
-        rv += "\n"
+        // rv += &String::from(w);
+        // rv += "\n"
+        pigword(&w);
     }
     rv
 }
@@ -63,6 +71,6 @@ fn main() {
              mean(&v),
              median(&v),
              mode(&v));
-    let mystring = "Having fun with rust!";
+    let mystring = "नमस्ते Здравствуйте öüÖÜáéíóúőűÁÉÍÓÚŐŰ Having fun with rust!";
     print!("{}", piggy(&mystring));
 }
